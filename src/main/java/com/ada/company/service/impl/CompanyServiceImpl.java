@@ -47,7 +47,7 @@ public class CompanyServiceImpl implements ICompanyService {
      */
     private Company createNewCompany(String codigoCompany) {
         return Company.builder()
-                .codigoCompany(generateRandomCompanyNumber())
+                .codigoCompany(codigoCompany)
                 .nameCompany(CompanyConstants.ADA)
                 .descriptionCompany(CompanyConstants.DESCRIPTION)
                 .build();
@@ -94,14 +94,5 @@ public class CompanyServiceImpl implements ICompanyService {
                 .orElseThrow(() -> new ResourceNotFoundException("Company", "codigo", codigoCompany));
         companyRepository.deleteById(company.getIdCompany());
         return true;
-    }
-
-    /**
-     * Genera un codigo de compañia aleatorio válido.
-     * @return codigo como cadena de 12 dígitos
-     */
-    private String generateRandomCompanyNumber() {
-        long randomCardNumber = 100000000000L + new Random().nextInt(900000000);
-        return Long.toString(randomCardNumber);
     }
 }
