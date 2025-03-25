@@ -1,0 +1,30 @@
+package com.ada.company.constants;
+
+// Clase que almacena constantes estáticas para evitar valores "mágicos" en el código
+public class CompanyConstants {
+
+    // Tipo de tarjeta predeterminado
+    public static final String  CREDIT_CARD = "Credit Card";
+
+    // Limite de tarjeta predeterminado
+    public static final String  NEW_CARD_LIMIT = 1_00_000;
+
+    // Código HTTP 201 - Creación exitosa
+    public static final String  STATUS_201 = "201";
+    // Mensaje asociado al código 201 (creación de cuenta)
+    public static final String  MESSAGE_201 = "Account created successfully";
+
+    // Código HTTP 200 - Éxito genérico
+    public static final String  STATUS_200 = "200";
+    // Mensaje para operaciones exitosas no específicas
+    public static final String  MESSAGE_200 = "Request processed successfully";
+
+    // Código HTTP 417 - Expectativa fallida (usado para operaciones fallidas)
+    public static final String  STATUS_417 = "417";
+    // Mensaje específico para fallos en actualizaciones
+    public static final String  MESSAGE_417_UPDATE= "Update operation failed. Please try again or contact Dev team";
+    // Mensaje específico para fallos en eliminaciones
+    public static final String  MESSAGE_417_DELETE= "Delete operation failed. Please try again or contact Dev team";
+
+
+}
