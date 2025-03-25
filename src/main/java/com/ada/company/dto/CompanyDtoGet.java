@@ -2,7 +2,10 @@ package com.ada.company.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 
-public record CompanyDto(
+public record CompanyDtoGet(
+
+        @NotEmpty(message = "Company id can not be a null or empty")
+        Long idCompany,
 
         @NotEmpty(message = "Company code can not be a null or empty")
         String codigoCompany,
@@ -13,6 +16,4 @@ public record CompanyDto(
         @NotEmpty(message = "Company description can not be a null or empty")
         String descriptionCompany
 ) {
-
-
 }

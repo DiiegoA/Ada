@@ -1,6 +1,8 @@
 package com.ada.company.service;
 
 import com.ada.company.dto.CompanyDto;
+import com.ada.company.dto.CompanyDtoGet;
+
 /**
  * Interfaz que define las operaciones básicas de gestión de tarjetas bancarias.
  * Contrato para implementaciones de servicios que manejen lógica de negocio relacionada con tarjetas.
@@ -21,7 +23,7 @@ public interface ICompanyService {
      * @return DTO con los detalles de la tarjeta del cliente
      * @apiNote El número móvil debe cumplir con el formato \d{10}
      */
-    CompanyDto fetchCompany(String codigoCompany);
+    CompanyDtoGet fetchCompany(String codigoCompany);
 
     /**
      * Actualiza la información de una tarjeta existente.

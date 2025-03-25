@@ -2,6 +2,7 @@ package com.ada.company.controller;
 
 import com.ada.company.constants.CompanyConstants;
 import com.ada.company.dto.CompanyDto;
+import com.ada.company.dto.CompanyDtoGet;
 import com.ada.company.dto.ResponseDto;
 import com.ada.company.service.ICompanyService;
 import jakarta.validation.Valid;
@@ -43,7 +44,7 @@ public class CompanyController {
      * @return Detalles completos de la tarjeta
      */
     @GetMapping("/fetch")
-    public ResponseEntity<CompanyDto> fetchCompanyDetails(
+    public ResponseEntity<CompanyDtoGet> fetchCompanyDetails(
             @RequestParam
             String codigoCompany
     ) {

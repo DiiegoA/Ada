@@ -2,6 +2,7 @@ package com.ada.company.service.impl;
 
 import com.ada.company.constants.CompanyConstants;
 import com.ada.company.dto.CompanyDto;
+import com.ada.company.dto.CompanyDtoGet;
 import com.ada.company.entity.Company;
 import com.ada.company.exception.CompanyAlreadyExistsException;
 import com.ada.company.exception.ResourceNotFoundException;
@@ -60,11 +61,11 @@ public class CompanyServiceImpl implements ICompanyService {
      * @throws ResourceNotFoundException Si no se encuentra la compañia
      */
     @Override
-    public CompanyDto fetchCompany(String codigoCompany) {
+    public CompanyDtoGet fetchCompany(String codigoCompany) {
         Company company = companyRepository.findByCodigoCompany(codigoCompany)
-                .orElseThrow(() -> new ResourceNotFoundException("Company", "codigo", codigoCompany));
+                .orElseThrow(() -> new ResourceNotFoundException("Compañia", "codigo", codigoCompany));
 
-        return CompanyMapper.mapToCompanyDto(company);
+        return CompanyMapper.mapToCompanyDtoGet(company);
     }
 
     /**
@@ -76,7 +77,7 @@ public class CompanyServiceImpl implements ICompanyService {
     @Override
     public boolean updateCompany(CompanyDto companyDto) {
         Company company = companyRepository.findByCodigoCompany(companyDto.codigoCompany())
-                .orElseThrow(() -> new ResourceNotFoundException("Company", "Codigo", companyDto.codigoCompany()));
+                .orElseThrow(() -> new ResourceNotFoundException("Compañia", "Codigo", companyDto.codigoCompany()));
         CompanyMapper.mapToCompany(companyDto, company);
         companyRepository.save(company);
         return true;
@@ -91,7 +92,7 @@ public class CompanyServiceImpl implements ICompanyService {
     @Override
     public boolean deleteCompany(String codigoCompany) {
         Company company = companyRepository.findByCodigoCompany(codigoCompany)
-                .orElseThrow(() -> new ResourceNotFoundException("Company", "codigo", codigoCompany));
+                .orElseThrow(() -> new ResourceNotFoundException("Compañia", "codigo", codigoCompany));
         companyRepository.deleteById(company.getIdCompany());
         return true;
     }
